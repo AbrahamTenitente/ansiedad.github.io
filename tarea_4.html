@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto web</title>
+    <link rel="icon" type="image/x-icon" href="img/logo.jpg">
+    <link rel="stylesheet" type="text/css" href="css/tareas.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap-5.2.1-dist/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap-5.2.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/aos.css">
+</head>
+
+<body>
+
+    <!-- Inicio de la cabecera -->
+    <header>
+        <div id="logotipo">
+            
+        </div>
+
+        <h1>
+            <a href="index.html">Graficas</a>
+        </h1>
+    </header>
+    <!-- Fin de la cabecera -->
+
+    <!-- Menú de Navegación -->
+    <nav id="nav">
+        <ul class="p-0">
+            <li><a href="index.html">Inicio</a></li>
+            <li>
+                <a href="biografia.html">Ansiedad</a>
+                <ul class="p-0">
+                    <li>
+                        <a href="biografia.html">Introduccion</a>
+                    </li>
+                    <li>
+                        <a href="pasatiempos.html">Que es la Ansiedad?</a>
+                    </li>
+                    <li>
+                 
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="index.html">Menu de Tareas</a>
+                <ul class="p-0">
+                    <li><a href="tarea_1.html">Tipos de Ansiedad</a></li>
+                    <li><a href="tarea_2.html">Metodo de Investigacion</a></li>
+                    <li><a href="tarea_3.html">Tabla de Datos</a></li>
+                    <li><a href="tarea_4.html">Graficas</a></li>
+                    <li><a href="tarea_8.html">Conclusion</a></li>
+                    <li><a href="tarea_9.html">Bibliografias</a></li>
+                    
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Fin de Menú de Navegación -->
+
+
+
+    <!-- Inicio del contenido central -->
+    <div id="content">
+
+        <!-- Inicio de las secciones -->
+        <div id="sections">
+            <section>
+               
+                <h2 class="titulo">Graficas</h2>
+                <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráficas de Ansiedad</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            text-align: center;
+        }
+        canvas {
+            margin: 10px;
+            width: 300px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Ansiedades por Género</h2>
+    <canvas id="barChart"></canvas>
+
+    <h2>Población que Cohabitan con Personas Diagnosticadas con Ansiedad</h2>
+    <canvas id="pieChart"></canvas>
+
+    <h2>Ansiedad entre Mujeres y Hombres</h2>
+    <canvas id="barChartVertical"></canvas>
+
+    <script>
+        // Gráfico de barras horizontal: Ansiedades por género
+        const ctxBar = document.getElementById('barChart').getContext('2d');
+        const barChart = new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: ['18 a 29 años', '30 a 44 años', '45 a 59 años', '60 años y más'],
+                datasets: [
+                    {
+                        label: 'Hombres',
+                        data: [11.7, 11.4, 10.1, 6.6],
+                        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Mujeres',
+                        data: [12.4, 14.3, 11.1, 6.6],
+                        backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Gráfico de pastel: Población que cohabitan con personas diagnosticadas con ansiedad
+        const ctxPie = document.getElementById('pieChart').getContext('2d');
+        const pieChart = new Chart(ctxPie, {
+            type: 'pie',
+            data: {
+                labels: ['Sí', 'No'],
+                datasets: [{
+                    data: [43.9, 56.1],
+                    backgroundColor: [
+                        'rgba(255, 159, 64, 0.6)',
+                        'rgba(75, 192, 192, 0.6)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+
+        // Gráfico de barras vertical: Ansiedad entre mujeres y hombres
+        const ctxBarVertical = document.getElementById('barChartVertical').getContext('2d');
+        const barChartVertical = new Chart(ctxBarVertical, {
+            type: 'bar',
+            data: {
+                labels: ['20-24', '25-29', '30-34', '35-39', '40-44', '45-50'],
+                datasets: [{
+                    label: 'Porcentaje de Ansiedad',
+                    data: [63.2, 81.9, 92.2, 100.5, 109.3, 119.4],
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
+
+
+    <!-- Fin del contenido central -->
+    <footer id="footer">
+        <p class="m-0">&copy; Desarrollado por Equipo 4</p>
+    </footer>
+    <nav aria-label="pagination">
+        <ul class="pagination">
+            <li class="page-item">
+                <a href="tarea_3.html"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a>
+            </li>
+            <li class="page-item">
+                <a href="tarea_5.html"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a>
+            </li>
+        </ul>
+    </nav>
+    <a href="#top" class="back-to-top"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+    <script src="js/jquery.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/aos.js"></script>
+    <script>
+        AOS.init()
+    </script>
+</body>
+
+</html>
